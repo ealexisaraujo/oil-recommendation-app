@@ -1,3 +1,4 @@
+from pathlib import Path
 import streamlit as st
 import pandas as pd
 from PIL import Image
@@ -25,10 +26,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 image = Image.open('1_Fuel-prices.jpg')
-st.sidebar.image(Image , caption="Nearby Oil App",width = 256)
-@st.cache
-def read_full_dataset(path: str = 'DF_STATIONS.csv') -> pd.DataFrame:
-    return pd.read_csv(path)
 
 # st.sidebar.image(image, caption="Nearby Oil App",width = 256)
 app_mode = st.sidebar.selectbox("Choose app mode", ["Run App","About Me"])
@@ -37,8 +34,8 @@ if app_mode == 'Run App':
   st.title('Nearby Oil Station App')
   st.markdown('App Description')
 
-
-  df_map = read_full_dataset()
+  file_path = Path(__file__).parents[1] / 'data/DF_STATIONS.csv'
+  df_map = pd.read_csv(file_path)
   cities =  list(df_map['Municipio'].unique())
 
   # Crear columnas usar st.columns especificando el ancho de las columnas
