@@ -25,6 +25,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 image = Image.open('1_Fuel-prices.jpg')
+st.sidebar.image(Image , caption="Nearby Oil App",width = 256)
 @st.cache
 def read_full_dataset(path: str = 'DF_STATIONS.csv') -> pd.DataFrame:
     return pd.read_csv(path)
