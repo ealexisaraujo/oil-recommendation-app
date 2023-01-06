@@ -22,7 +22,7 @@ if app_mode == 'Run App':
   st.title('Nearby Oil Station App')
   st.markdown('App Description')
 
-  df_map = pd.read_csv('DF_STATIONS.csv')
+  df_map = pd.read_csv('data/DF_STATIONS.csv')
   cities =  list(df_map['Municipio'].unique())
 
   # Crear columnas usar st.columns especificando el ancho de las columnas
