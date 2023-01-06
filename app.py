@@ -34,7 +34,7 @@ if app_mode == 'Run App':
   st.title('Nearby Oil Station App')
   st.markdown('App Description')
 
-  file_path = Path('DF_STATIONS.csv').parents[0] / 'DF_STATIONS.csv'
+  file_path = Path('DF_STATIONS.CSV').parents[0] / 'DF_STATIONS.CSV'
   df_map = pd.read_csv(file_path)
   cities =  list(df_map['Municipio'].unique())
 
